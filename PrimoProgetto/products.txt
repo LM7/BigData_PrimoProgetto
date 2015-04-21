@@ -1,0 +1,5 @@
+20150321,uova,latte,pane,vino
+20150218,pesce,pane,insalata,formaggio
+20150228,pesce,pane,formaggio,tonno
+20150222,uova,insalata,formaggio,pesce
+20150213,pesce,insalata,uova,pane
