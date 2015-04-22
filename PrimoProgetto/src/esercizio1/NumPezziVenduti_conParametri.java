@@ -13,38 +13,45 @@ import org.apache.hadoop.conf.Configured;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
 
-public class NumPezziVenduti extends Configured implements Tool {
+public class NumPezziVenduti_conParametri extends Configured implements Tool {
 
 	public int run(String[] args) throws Exception {
-
-		Path inputFile = new Path(args[0]);
-		Path outputTemp = new Path(args[1]);
-		Path outputFinal = new Path(args[2]);
-
-		JobConf conf = new JobConf(getConf(), NumPezziVenduti.class);
-		conf.setJobName("NumPezziVenduti");
-
-		FileInputFormat.setInputPaths(conf, inputFile);	
-
-		FileSystem fs = FileSystem.get(conf);
-		if(fs.exists(outputTemp)){
-			fs.delete((outputTemp),true);
+	
+		if (args.length != 3) {
+			System.out.printf("Usage: %s [generic options] <indir> <outdir>\n", 
+				getClass().getSimpleName());
+			ToolRunner.printGenericCommandUsage(System.out);
+			System.exit(-1);
 		}
 
-		FileOutputFormat.setOutputPath(conf, outputTemp);
+		JobConf conf = new JobConf(getConf(), NumPezziVenduti_conParametri.class);
+		conf.setJobName("NumPezziVenduti");
+
+		FileInputFormat.setInputPaths(conf, new Path(args[0]));	
+
+		FileSystem fs = FileSystem.get(conf);
+		if(fs.exists(new Path(args[1]))){
+			fs.delete(new Path(args[1]),true);
+		}
+		
+		FileOutputFormat.setOutputPath(conf, new Path(args[1]));
+
 		conf.setMapperClass(NumPezziVendutiMapper.class);
 		conf.setReducerClass(NumPezziVendutiReducer.class);
+
 		conf.setMapOutputKeyClass(Text.class);
 		conf.setMapOutputValueClass(IntWritable.class);
+
 		conf.setOutputKeyClass(Text.class);
 		conf.setOutputValueClass(IntWritable.class);
-		JobClient.runJob(conf);
 
+		JobClient.runJob(conf);
+		
 		JobConf conf2 = new JobConf(getConf(), NumPezziVendutiSort.class);
 		conf2.setJobName("NumPezziVendutiSort");
 
 		FileInputFormat.setInputPaths(conf2, args[1]+"/part-00000");		
-		FileOutputFormat.setOutputPath(conf2, outputFinal);
+		FileOutputFormat.setOutputPath(conf2, new Path(args[2]));
 		conf2.setMapperClass(NumPezziVendutiMapperSort.class);
 		conf2.setReducerClass(NumPezziVendutiReducerSort.class);
 		conf2.setMapOutputKeyClass(IntWritable.class);
@@ -52,23 +59,17 @@ public class NumPezziVenduti extends Configured implements Tool {
 		conf2.setOutputKeyClass(Text.class);
 		conf2.setOutputValueClass(IntWritable.class);
 		JobClient.runJob(conf2);
-
+		
 		return 0;
 	}
-
-
+		
 	public static void main(String[] args) throws Exception {
-		System.out.println(args.length);
-		/*if (args.length != 2) {
-				System.out.printf("Usage: NumPezziVenudti /path/to/product.txt output_dir");
-				//ToolRunner.printGenericCommandUsage(System.out);
-				System.exit(-1);
-			}
-		 */
-		int exitCode = ToolRunner.run(new Configuration(),new NumPezziVenduti(), args);
-		System.out.println("Operations DONE, exitCode: "+exitCode);
-		System.exit(exitCode); 
+		//int exitCode = ToolRunner.run(new AverageWordLength(), args);
+		String[] arg = new String[]{"products.txt","result","resultSort"};
+		int exitCode = ToolRunner.run(new NumPezziVenduti_conParametri(), arg);
+		//System.exit(exitCode);
+		System.out.println("First Operation DONE, exitCode: "+exitCode);
+		System.exit(exitCode);
 	}
-
 
 }
