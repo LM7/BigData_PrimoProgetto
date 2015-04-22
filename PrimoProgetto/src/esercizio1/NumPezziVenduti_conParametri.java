@@ -64,10 +64,8 @@ public class NumPezziVenduti_conParametri extends Configured implements Tool {
 	}
 		
 	public static void main(String[] args) throws Exception {
-		//int exitCode = ToolRunner.run(new AverageWordLength(), args);
 		String[] arg = new String[]{"products.txt","result","resultSort"};
 		int exitCode = ToolRunner.run(new NumPezziVenduti_conParametri(), arg);
-		//System.exit(exitCode);
 		System.out.println("First Operation DONE, exitCode: "+exitCode);
 		System.exit(exitCode);
 	}
