@@ -16,8 +16,7 @@ public class NumPezziVendutiMapper extends MapReduceBase
 	private Text letter = new Text();
 	private IntWritable uno = new IntWritable(1);
 	
-	public void map(Object key, Text value, 
-			OutputCollector<Text, IntWritable> output, Reporter reporter) 
+	public void map(Object key, Text value,	OutputCollector<Text, IntWritable> output, Reporter reporter) 
 	throws IOException {
 		
 		// Break line into words for processing

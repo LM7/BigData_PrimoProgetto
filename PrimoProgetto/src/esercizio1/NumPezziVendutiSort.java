@@ -1,8 +1,6 @@
 package esercizio1;
 
-import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
-import org.apache.hadoop.io.FloatWritable;
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapred.FileInputFormat;
@@ -25,7 +23,7 @@ public class NumPezziVendutiSort extends Configured implements Tool {
 		}
 
 		JobConf conf = new JobConf(getConf(), NumPezziVendutiSort.class);
-		conf.setJobName("AverageWordLength");
+		conf.setJobName("NumPezziVenduti");
 
 		FileInputFormat.setInputPaths(conf, new Path(args[0]));		
 		FileOutputFormat.setOutputPath(conf, new Path(args[1]));

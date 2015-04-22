@@ -13,15 +13,15 @@ import org.apache.hadoop.mapred.Reporter;
 public class NumPezziVendutiReducerSort extends MapReduceBase 
 		implements Reducer<IntWritable, Text, Text, IntWritable> {
 	
-	private static final String SEP = ",";
+	//private static final String SEP = ",";
 	
 	public void reduce(IntWritable key, Iterator<Text> values, 
 		OutputCollector<Text,IntWritable> output, Reporter reporter)
 	throws IOException {
 		
 		//output.collect(key, values.next());
-		StringBuilder valueList = new StringBuilder();
-		boolean firstValue = true;
+		//StringBuilder valueList = new StringBuilder();
+		//boolean firstValue = true;
 		
 		while (values.hasNext()) {
 			output.collect(new Text(values.next()),new IntWritable(key.get()*(-1)));
