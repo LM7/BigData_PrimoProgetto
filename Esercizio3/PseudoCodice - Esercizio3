@@ -14,11 +14,16 @@ for each line l in text:              					    \\per ogni riga del file di input
 
 
 \*
-*  Reducer che somma per ciascuna chiave (coppia di prodotti) le occorrenze associate
+*  Reducer che somma per ciascuna chiave (coppia di prodotti) le occorrenze associate e filtra le migliori 10 coppie
+(Il filtraggio è effettuato gestendo una coda di dimensione 10 dalla quale viene eliminata di volta in volta la coppia con la minore occorrenza)
 *\
 
 Reduce(key, counts[]):            
 occ = 0;		      \\inizializza il contatore a 0
 for each c in counts:	      \\per ogni istanza in counts
 	occ += c;             \\aggiorna il contatore
-	****		      \\filtra i 10 risultati migliori
+
+pair=(key,occ);                \\crea una coppia (chiave, occorrenze)
+queue.add(pair);	            \\aggiungi ad una coda questa coppia
+pairMin=min(queue);       \\seleziona la coppia con occorrenza minore 
+queue.remove(pairMin);   \\rimuovi dalla coda la coppia filtrata
