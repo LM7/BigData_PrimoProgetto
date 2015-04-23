@@ -6,7 +6,7 @@
 Map(key, text):
 for each line l in text:              \\per ogni riga del file di input
 	for each product p in line:   \\per ogni prodotto di ogni riga
-		Emit(p, 1);	      \\associata il valore 1
+		Emit(p, 1);	      \\associa il valore 1
 
 
 \*

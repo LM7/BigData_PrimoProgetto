@@ -1,0 +1,23 @@
+
+\*
+*  Mapper che associa a ciascuna chiave (prodotto,data) il valore uno se il mese della data analizzata è relativo al primo trimestre
+*\
+
+Map(key, text):
+for each line l in text:              		\\per ogni riga del file di input
+	for each date d & product p in line:    \\per ogni data e prodotto di ogni riga
+	if(d->month<=3)				\\se il mese della data è gennaio,febbraio o marzo
+		key=p+w;			\\aggiorna la chiave 
+		Emit(key, 1);	  	        \\associa il valore 1
+
+
+\*
+*  Reducer che somma per ciascuna chiave (prodotto,data) le occorrenze rilevate e organizza le vendite del primo trimestre per ciascun prodotto
+*\
+Reduce(key, counts[]):            
+occ = 0;		      \\inizializza il contatore a 0
+for each c in counts:	      \\per ogni chiave (prodotto,data) in counts
+	occ += c;             \\aggiorna il contatore
+for each product p in keySet: \\per ogni prodotto presente nelle chiavi
+	****		      \\raggruppa le coppie (date,occorrenze)	
+
