@@ -11,14 +11,20 @@ import org.apache.hadoop.conf.Configured;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
 
-import esercizio2.VenditePrmTrimestre;
-
-public class NumCoppiePezziVenduti extends Configured implements Tool {
+public class NumCoppiePezziVenduti_conParametri extends Configured implements Tool {
 
 	public int run(String[] args) throws Exception {
+	
+		if (args.length != 2) {
+			System.out.printf("Usage: %s [generic options] <indir> <outdir>\n", 
+				getClass().getSimpleName());
+			ToolRunner.printGenericCommandUsage(System.out);
+			System.exit(-1);
+		}
+		
 		Configuration conf = new Configuration();
 	    Job job = Job.getInstance(conf, "num coppie");
-	    job.setJarByClass(NumCoppiePezziVenduti.class);
+	    job.setJarByClass(NumCoppiePezziVenduti_conParametri.class);
 	    job.setMapperClass(NumCoppiePezziVendutiMapperSort.class);
 	    //job.setCombinerClass(IntSumReducer.class);
 	    job.setReducerClass(NumCoppiePezziVendutiReducerSort.class);
@@ -37,14 +43,9 @@ public class NumCoppiePezziVenduti extends Configured implements Tool {
 		
 	
 	public static void main(String[] args) throws Exception {
-		if (args.length != 2) {
-			System.out.printf("Usage: NumCoppiePezziVenduti /path/to/product.txt output_dir");
-			ToolRunner.printGenericCommandUsage(System.out);
-			System.exit(-1);
-		}
-		int exitCode = ToolRunner.run(new Configuration(), new NumCoppiePezziVenduti(), args);
-		System.out.println("Operations DONE, exitCode: "+exitCode);
-		System.exit(exitCode);
+		String[] arg = new String[]{"products.txt","result3"};
+		int exitCode = ToolRunner.run(new NumCoppiePezziVenduti_conParametri(), arg);
+		System.out.println("DONE "+exitCode);
 	}
 	
 }
