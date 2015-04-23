@@ -14,6 +14,7 @@ for each line l in text:              		\\per ogni riga del file di input
 \*
 *  Reducer che somma per ciascuna chiave (prodotto,data) le occorrenze rilevate e organizza le vendite del primo trimestre per ciascun prodotto
 *\
+
 Reduce(key, counts[]):            
 occ = 0;		      \\inizializza il contatore a 0
 for each c in counts:	      \\per ogni chiave (prodotto,data) in counts
