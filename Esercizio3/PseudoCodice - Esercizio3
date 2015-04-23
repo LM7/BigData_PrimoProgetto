@@ -1,0 +1,24 @@
+
+\*
+*  Mapper che associa il valore uno ad ogni possibile coppia di prodotti presente in ciascuna riga del file di input
+*\
+
+Map(key, text):
+for each line l in text:              					    \\per ogni riga del file di input
+	for each product p in line:    					    \\per ogni prodotto di ogni riga
+		lineProduct.add(p);					    \\aggiorna una lista
+	for each i=0 to lineProduct.size:				    \\scorre la lista con un parametro i
+		for each j=i+1 to lineProduct.size:			    \\scorre la lsita con un parametro j	
+			pair=(lineProduct->get(i),lineProduct->get(j));	    \\crea le coppie di prodotti		
+			Emit(pair, 1);			     	            \\associa il valore 1
+
+
+\*
+*  Reducer che somma per ciascuna chiave (coppia di prodotti) le occorrenze associate
+*\
+
+Reduce(key, counts[]):            
+occ = 0;		      \\inizializza il contatore a 0
+for each c in counts:	      \\per ogni istanza in counts
+	occ += c;             \\aggiorna il contatore
+	****		      \\filtra i 10 risultati migliori

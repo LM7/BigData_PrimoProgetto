@@ -17,7 +17,7 @@ for each line l in text:              		\\per ogni riga del file di input
 
 Reduce(key, counts[]):            
 occ = 0;		      \\inizializza il contatore a 0
-for each c in counts:	      \\per ogni chiave (prodotto,data) in counts
+for each c in counts:	      \\per ogni istanza in counts
 	occ += c;             \\aggiorna il contatore
 for each product p in keySet: \\per ogni prodotto presente nelle chiavi
 	****		      \\raggruppa le coppie (date,occorrenze)	
