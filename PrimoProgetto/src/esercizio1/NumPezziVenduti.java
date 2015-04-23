@@ -60,11 +60,9 @@ public class NumPezziVenduti extends Configured implements Tool {
 	public static void main(String[] args) throws Exception {
 		System.out.println(args.length);
 		if (args.length != 3) {
-				System.out.printf("Usage: NumPezziVenudti /path/to/product.txt output_dir");
-				//ToolRunner.printGenericCommandUsage(System.out);
+				System.out.printf("Usage: NumPezziVenduti /path/to/product.txt output_dir");
 				System.exit(-1);
 			}
-		 
 		int exitCode = ToolRunner.run(new Configuration(),new NumPezziVenduti(), args);
 		System.out.println("Operations DONE, exitCode: "+exitCode);
 		System.exit(exitCode); 
