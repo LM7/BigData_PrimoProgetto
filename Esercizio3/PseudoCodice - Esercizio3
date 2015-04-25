@@ -19,11 +19,11 @@ for each line l in text:              					    \\per ogni riga del file di input
 *\
 
 Reduce(key, counts[]):            
-occ = 0;		      \\inizializza il contatore a 0
-for each c in counts:	      \\per ogni istanza in counts
-	occ += c;             \\aggiorna il contatore
+occ = 0;		        	\\inizializza il contatore a 0
+for each c in counts:	      		\\per ogni istanza in counts
+	occ += c;             		\\aggiorna il contatore
 
 pair=(key,occ);                         \\crea una coppia (chiave, occorrenze)
-queue.add(pair);	                     \\aggiungi ad una coda questa coppia
-if(queue.size>TopK)                  \\se la dimensione della coda supera il valore TopK(=10)
-       queue.remove(pairMin);     \\rimuovi dalla coda la coppia con occorrenza minore
+queue.add(pair);	                \\aggiungi ad una coda questa coppia
+if(queue.size>TopK)                  	\\se la dimensione della coda supera il valore TopK(=10)
+       queue.remove(pairMin);     	\\rimuovi dalla coda la coppia con occorrenza minore

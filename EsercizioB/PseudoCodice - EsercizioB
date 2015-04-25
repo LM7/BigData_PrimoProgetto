@@ -1,0 +1,40 @@
+
+\*
+*  Mapper che associa il valore uno ad ogni possibile insieme di prodotti (coppie, triple e quadruple) presenti in ciascuna riga del file di input
+*\
+
+Map(key, text):
+for each line l in text:              					        \\per ogni riga del file di input
+     for each product p in line:    					        \\per ogni prodotto di ogni riga
+	lineProduct.add(p);					    	        \\aggiorna una lista
+									        \\creo coppie	
+	for each i=0 to lineProduct.size:				        \\scorre la lista con un parametro i
+             for each j=i+1 to lineProduct.size:			        \\scorre la lsita con un parametro j	
+	          pair=(lineProduct->get(i),lineProduct->get(j));	        \\crea le coppie di prodotti		
+		  Emit(pair, 1);			     	                \\associa il valore 1
+									        \\creo triple	
+	for each i=0 to lineProduct.size:				        \\scorre la lista con un parametro i
+	     for each j=i+1 to lineProduct.size:			        \\scorre la lsita con un parametro j	
+	          for each k=i+1 to lineProduct.size:			        \\scorre la lsita con un parametro k	
+		       triple=(lineProduct->get(i),lineProduct->get(j),
+			       lineProduct->get(k));    		        \\crea le coppie di prodotti		
+		       Emit(triple, 1);			     	                \\associa il valore 1
+									        \\creo quadruple
+	for each i=0 to lineProduct.size:				        \\scorre la lista con un parametro i
+	     for each j=i+1 to lineProduct.size:			        \\scorre la lsita con un parametro j	
+	          for each k=i+1 to lineProduct.size:			        \\scorre la lsita con un parametro k	
+		       for each w=i+1 to lineProduct.size:		        \\scorre la lsita con un parametro w	
+		            quadr=(lineProduct->get(i),lineProduct->get(j),
+			            lineProduct->get(k),lineProduct->get(w));   \\crea le coppie di prodotti		
+			    Emit(quadr, 1);			     	        \\associa il valore 1
+
+
+\*
+*  Reducer che somma per ciascuna chiave (insieme di prodotti: coppie,triple o quadruple) le occorrenze associate
+*\
+
+Reduce(key, counts[]):            
+occ = 0;		      \\inizializza il contatore a 0
+for each c in counts:	      \\per ogni istanza in counts
+	occ += c;             \\aggiorna il contatore
+Emit(key, occ);               \\associa a ciascun insieme prodotto il numero di occorrenze
