@@ -1,0 +1,183 @@
+    acqua birra	1
+    acqua carne	2
+    acqua formaggio	1
+    acqua frutta	2
+    acqua insalata	1
+    acqua pane	1
+    acqua pasta	2
+    acqua pesce	1
+    acqua pizza	1
+    acqua tonno	1
+    acqua uova	1
+    birra carne	2
+    birra formaggio	2
+    birra frutta	5
+    birra pane	1
+    birra pasta	5
+    birra pizza	3
+    carne formaggio	3
+    carne frutta	4
+    carne insalata	1
+    carne pane	1
+    carne pasta	4
+    carne pesce	1
+    carne pizza	2
+    carne tonno	1
+    carne vino	2
+    formaggio frutta	4
+    formaggio insalata	2
+    formaggio pane	5
+    formaggio pasta	3
+    formaggio pesce	5
+    formaggio pizza	1
+    formaggio tonno	2
+    formaggio uova	1
+    formaggio vino	1
+    frutta pane	3
+    frutta pasta	7
+    frutta pesce	1
+    frutta pizza	3
+    frutta uova	1
+    frutta vino	1
+    insalata pane	1
+    insalata pesce	2
+    insalata uova	1
+    latte pane	1
+    latte uova	1
+    latte vino	1
+    pane pasta	2
+    pane pesce	4
+    pane tonno	2
+    pane uova	3
+    pane vino	1
+    pasta pesce	1
+    pasta pizza	3
+    pasta tonno	1
+    pesce pizza	1
+    pesce tonno	1
+    pesce uova	3
+    pesce vino	1
+    pizza uova	1
+    pizza vino	1
+    uova vino	2
+  acqua birra frutta	1
+  acqua birra pasta	1
+  acqua birra pizza	1
+  acqua carne insalata	1
+  acqua carne pasta	1
+  acqua carne tonno	1
+  acqua formaggio pesce	1
+  acqua frutta pane	1
+  acqua frutta pasta	1
+  acqua frutta pizza	1
+  acqua frutta uova	1
+  acqua pane uova	1
+  acqua pasta pizza	1
+  acqua pasta tonno	1
+  birra carne formaggio	1
+  birra carne frutta	2
+  birra carne pasta	2
+  birra carne pizza	2
+  birra formaggio frutta	2
+  birra formaggio pane	1
+  birra formaggio pasta	2
+  birra formaggio pizza	1
+  birra frutta pane	1
+  birra frutta pasta	5
+  birra frutta pizza	3
+  birra pane pasta	1
+  birra pasta pizza	3
+  carne formaggio frutta	3
+  carne formaggio pane	1
+  carne formaggio pasta	2
+  carne formaggio pesce	1
+  carne formaggio pizza	1
+  carne formaggio vino	1
+  carne frutta pane	1
+  carne frutta pasta	3
+  carne frutta pesce	1
+  carne frutta pizza	2
+  carne frutta vino	1
+  carne pane pasta	1
+  carne pane pesce	1
+  carne pasta pesce	1
+  carne pasta pizza	2
+  carne pasta tonno	1
+  formaggio frutta pane	2
+  formaggio frutta pasta	3
+  formaggio frutta pesce	1
+  formaggio frutta pizza	1
+  formaggio frutta vino	1
+  formaggio insalata pane	1
+  formaggio insalata pesce	2
+  formaggio insalata uova	1
+  formaggio pane pasta	2
+  formaggio pane pesce	3
+  formaggio pane tonno	2
+  formaggio pasta pesce	1
+  formaggio pasta pizza	1
+  formaggio pesce tonno	1
+  formaggio pesce uova	1
+  frutta pane pasta	2
+  frutta pane pesce	1
+  frutta pane uova	1
+  frutta pasta pesce	1
+  frutta pasta pizza	3
+  insalata pane pesce	1
+  insalata pesce uova	1
+  latte pane uova	1
+  latte pane vino	1
+  latte uova vino	1
+  pane pasta pesce	1
+  pane pesce tonno	1
+  pane pesce uova	1
+  pane uova vino	1
+  pesce pizza uova	1
+  pesce pizza vino	1
+  pesce uova vino	1
+  pizza uova vino	1
+acqua birra frutta pasta	1
+acqua birra frutta pizza	1
+acqua birra pasta pizza	1
+acqua carne pasta tonno	1
+acqua frutta pane uova	1
+acqua frutta pasta pizza	1
+birra carne formaggio frutta	1
+birra carne formaggio pasta	1
+birra carne formaggio pizza	1
+birra carne frutta pasta	2
+birra carne frutta pizza	2
+birra carne pasta pizza	2
+birra formaggio frutta pane	1
+birra formaggio frutta pasta	2
+birra formaggio frutta pizza	1
+birra formaggio pane pasta	1
+birra formaggio pasta pizza	1
+birra frutta pane pasta	1
+birra frutta pasta pizza	3
+carne formaggio frutta pane	1
+carne formaggio frutta pasta	2
+carne formaggio frutta pesce	1
+carne formaggio frutta pizza	1
+carne formaggio frutta vino	1
+carne formaggio pane pasta	1
+carne formaggio pane pesce	1
+carne formaggio pasta pesce	1
+carne formaggio pasta pizza	1
+carne frutta pane pasta	1
+carne frutta pane pesce	1
+carne frutta pasta pesce	1
+carne frutta pasta pizza	2
+carne pane pasta pesce	1
+formaggio frutta pane pasta	2
+formaggio frutta pane pesce	1
+formaggio frutta pasta pesce	1
+formaggio frutta pasta pizza	1
+formaggio insalata pane pesce	1
+formaggio insalata pesce uova	1
+formaggio pane pasta pesce	1
+formaggio pane pesce tonno	1
+frutta pane pasta pesce	1
+latte pane uova vino	1
+pesce pizza uova vino	1
+
