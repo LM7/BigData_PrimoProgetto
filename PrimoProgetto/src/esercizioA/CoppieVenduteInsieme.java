@@ -15,20 +15,22 @@ import org.apache.hadoop.util.ToolRunner;
 public class CoppieVenduteInsieme extends Configured implements Tool {
 
 	public int run(String[] args) throws Exception {
-	
 		Configuration conf = new Configuration();
-	    Job job = Job.getInstance(conf, "num coppie");
-	    job.setJarByClass(CoppieVenduteInsieme.class);
-	    job.setMapperClass(CoppieVenduteInsiemeMapperSort.class);
-	    //job.setCombinerClass(IntSumReducer.class);
-	    job.setReducerClass(CoppieVenduteInsiemeReducerSort.class);
-	    job.setOutputKeyClass(CoppieWritable.class);
-	    job.setOutputValueClass(IntWritable.class);
+	    	Job job = Job.getInstance(conf, "num coppie");
+	    	job.setJarByClass(CoppieVenduteInsieme.class);
+	    	job.setMapperClass(CoppieVenduteInsiemeMapperSort.class);
+	    	//job.setCombinerClass(IntSumReducer.class);
+	    	job.setReducerClass(CoppieVenduteInsiemeReducerSort.class);
+	    	job.setOutputKeyClass(CoppieWritable.class);
+	    	job.setOutputValueClass(IntWritable.class);
 		FileInputFormat.addInputPath(job, new Path(args[0]));	
 
-		FileSystem fs = FileSystem.get(conf);
-		if(fs.exists(new Path(args[1]))){
-			fs.delete(new Path(args[1]),true);
+		try{
+			FileSystem fs = FileSystem.get(conf);
+			if(fs.exists(new Path(args[1]))){
+				fs.delete(new Path(args[1]),true);
+			}
+		}catch(Exception e){
 		}
 		
 		FileOutputFormat.setOutputPath(job, new Path(args[1]));
