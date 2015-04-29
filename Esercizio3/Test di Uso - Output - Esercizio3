@@ -1,10 +1,11 @@
-pasta,birra	5
-pesce,formaggio	4
-frutta,pasta	4
+carne,frutta	4
 pesce,pane	4
-acqua,frutta	3
-carne,vino	3
-acqua,carne	3
-frutta,carne	3
+pane,formaggio	4
+pesce,formaggio	4
+carne,formaggio	3
 uova,pane	3
 frutta,birra	3
+pasta,birra	3
+frutta,pasta	3
+pasta,pizza	3
+
