@@ -42,7 +42,7 @@ public class VenditePrmTrimestre_conParametri extends Configured implements Tool
 	}
 		
 	public static void main(String[] args) throws Exception {
-		String[] arg = new String[]{"products.txt","result"};
+		String[] arg = new String[]{"products.txt","result2"};
 		int exitCode = ToolRunner.run(new VenditePrmTrimestre_conParametri(), arg);
 		System.out.println("DONE "+exitCode);
 	}

@@ -48,7 +48,7 @@ public class NumeroPezziVenduti_conParametri extends Configured implements Tool 
 		
 	
 	public static void main(String[] args) throws Exception {
-		String[] arg = new String[]{"products.txt","result"};
+		String[] arg = new String[]{"products.txt","result1"};
 		int exitCode = ToolRunner.run(new NumeroPezziVenduti_conParametri(), arg);
 		System.out.println("DONE "+exitCode);
 	}

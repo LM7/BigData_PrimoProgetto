@@ -43,7 +43,7 @@ public class InsiemiProdottiCard_conParametri extends Configured implements Tool
 
 
 	public static void main(String[] args) throws Exception {
-		String[] arg = new String[]{"products.txt","result"};
+		String[] arg = new String[]{"products.txt","resultB"};
 		int exitCode = ToolRunner.run(new InsiemiProdottiCard_conParametri(), arg);
 		System.out.println("Operation DONE, exitCode: "+exitCode);
 		System.exit(exitCode);
