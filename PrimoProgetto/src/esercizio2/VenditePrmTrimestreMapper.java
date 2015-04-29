@@ -9,25 +9,19 @@ import java.util.StringTokenizer;
 
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
-import org.apache.hadoop.mapred.Mapper;
-import org.apache.hadoop.mapred.MapReduceBase;
-import org.apache.hadoop.mapred.OutputCollector;
-import org.apache.hadoop.mapred.Reporter;
+import org.apache.hadoop.mapreduce.Mapper;
 
-public class VenditePrmTrimestreMapper extends MapReduceBase implements Mapper<Object, Text, Text, IntWritable> {
+public class VenditePrmTrimestreMapper extends Mapper<Object, Text, Text, IntWritable> {
 
 	private IntWritable one = new IntWritable(1);
 	private Text word = new Text();
-    //private Text prodotto = new Text();
     private Text data = new Text();
 	
-	public void map(Object key, Text value, OutputCollector<Text, IntWritable> output, Reporter reporter) throws IOException {
+    public void map(Object key, Text value, Context context) throws IOException, InterruptedException {
 		
-		StringTokenizer itr1 = new StringTokenizer(value.toString(), "\n");
-	      while (itr1.hasMoreTokens()) {
-	    	StringTokenizer itr2 = new StringTokenizer(itr1.nextToken(), ",");
+		
+	    	StringTokenizer itr2 = new StringTokenizer(value.toString(), ",");
 	    	data.set(itr2.nextToken());
-	    	//System.out.println("DATA: "+data);
 	    	while(itr2.hasMoreTokens()) {
 	    		Calendar cal = Calendar.getInstance();
 	    		String dataStringa = data.toString();
@@ -36,7 +30,7 @@ public class VenditePrmTrimestreMapper extends MapReduceBase implements Mapper<O
 					Date date = formatter.parse(dataStringa);
 					cal.setTime(date);
 					int anno = cal.get(Calendar.YEAR);
-					int mese = cal.get(Calendar.MONTH) + 1; //perchè sempre minore di uno??
+					int mese = cal.get(Calendar.MONTH) + 1; 
 					String annoStringa = String.valueOf(anno);
 					String meseStringa = String.valueOf(mese);
 					String dataStringaNuova = meseStringa + "/" + annoStringa;
@@ -44,11 +38,8 @@ public class VenditePrmTrimestreMapper extends MapReduceBase implements Mapper<O
 			   		//String prodottoStringa = word.toString();
 			   		String finale = word + " "+dataStringaNuova+":";
 			   		Text finalissimo = new Text(finale);
-			   		//System.out.println(finalissimo);
 			   		if (mese <= 3) {
-			   			//context.write(word, one);
-			   			//System.out.println(finalissimo+" "+one);
-			   			output.collect(finalissimo, one);
+			   			context.write(finalissimo, one);
 			   			
 			   			
 			   		}
@@ -60,7 +51,7 @@ public class VenditePrmTrimestreMapper extends MapReduceBase implements Mapper<O
 	    		
 	    		
 	    	}
-	      }
+	      
 	}
 }
 
