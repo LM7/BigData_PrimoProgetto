@@ -24,9 +24,12 @@ public class InsiemiProdottiCard extends Configured implements Tool {
 
 		FileInputFormat.setInputPaths(conf, inputFile);	
 
-		FileSystem fs = FileSystem.get(conf);
-		if(fs.exists(outputTemp)){
-			fs.delete((outputTemp),true);
+		try{
+			FileSystem fs = FileSystem.get(conf);
+			if(fs.exists(outputTemp)){
+				fs.delete((outputTemp),true);
+			}
+		}catch(Exception e){
 		}
 
 		FileOutputFormat.setOutputPath(conf, outputTemp);
