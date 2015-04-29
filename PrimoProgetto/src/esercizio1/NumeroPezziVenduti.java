@@ -24,7 +24,7 @@ public class NumeroPezziVenduti extends Configured implements Tool {
 		}
 
 		Configuration conf = new Configuration();
-		Job job = Job.getInstance(conf, "num coppie");
+		Job job = Job.getInstance(conf, "NumeroPezziVenduti");
 		job.setJarByClass(NumeroPezziVenduti.class);
 		job.setMapperClass(NumeroPezziVendutiMapperSort.class);
 		//job.setCombinerClass(IntSumReducer.class);

@@ -23,7 +23,7 @@ public class NumCoppiePezziVenduti_conParametri extends Configured implements To
 		}
 		
 		Configuration conf = new Configuration();
-	    Job job = Job.getInstance(conf, "num coppie");
+	    Job job = Job.getInstance(conf, "NumCoppiePezziVenduti_conParametri");
 	    job.setJarByClass(NumCoppiePezziVenduti_conParametri.class);
 	    job.setMapperClass(NumCoppiePezziVendutiMapperSort.class);
 	    //job.setCombinerClass(IntSumReducer.class);

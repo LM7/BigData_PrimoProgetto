@@ -20,7 +20,7 @@ public class InsiemiProdottiCard_conParametri extends Configured implements Tool
 		Path outputTemp = new Path(args[1]);
 
 		JobConf conf = new JobConf(getConf(), InsiemiProdottiCard_conParametri.class);
-		conf.setJobName("InsiemiProdottiCard");
+		conf.setJobName("InsiemiProdottiCard_conParametri");
 
 		FileInputFormat.setInputPaths(conf, inputFile);	
 

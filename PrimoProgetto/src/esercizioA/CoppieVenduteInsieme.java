@@ -16,7 +16,7 @@ public class CoppieVenduteInsieme extends Configured implements Tool {
 
 	public int run(String[] args) throws Exception {
 		Configuration conf = new Configuration();
-	    	Job job = Job.getInstance(conf, "num coppie");
+	    	Job job = Job.getInstance(conf, "CoppieVenduteInsieme");
 	    	job.setJarByClass(CoppieVenduteInsieme.class);
 	    	job.setMapperClass(CoppieVenduteInsiemeMapperSort.class);
 	    	//job.setCombinerClass(IntSumReducer.class);
