@@ -25,10 +25,13 @@ public class VenditePrmTrimestre extends Configured implements Tool {
 		job.setOutputKeyClass(Text.class);
 		job.setOutputValueClass(IntWritable.class);
 		FileInputFormat.addInputPath(job, new Path(args[0]));	
-
-		FileSystem fs = FileSystem.get(conf);
-		if(fs.exists(new Path(args[1]))){
-			fs.delete(new Path(args[1]),true);
+		
+		try{
+			FileSystem fs = FileSystem.get(conf);
+			if(fs.exists(new Path(args[1]))){
+				fs.delete(new Path(args[1]),true);
+			}
+		}catch(Exception e){
 		}
 
 		FileOutputFormat.setOutputPath(job, new Path(args[1]));
