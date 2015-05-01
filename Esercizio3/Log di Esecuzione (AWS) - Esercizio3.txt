@@ -1,0 +1,88 @@
+15/04/30 13:46:33 INFO fs.EmrFileSystem: Consistency disabled, using com.amazon.ws.emr.hadoop.fs.s3n.S3NativeFileSystem as filesystem implementation
+15/04/30 13:46:33 INFO metrics.MetricsSaver: MetricsConfigRecord disabledInCluster: false instanceEngineCycleSec: 60 clusterEngineCycleSec: 60 disableClusterEngine: false 
+15/04/30 13:46:33 INFO metrics.MetricsSaver: Created MetricsSaver j-HBJZ7T7W7NAL:i-1592d4e8:RunJar:21473 period:60 /mnt/var/em/raw/i-1592d4e8_20150430_null_00000_raw.bin
+15/04/30 13:46:34 INFO client.RMProxy: Connecting to ResourceManager at /10.164.153.110:9022
+15/04/30 13:46:35 WARN mapreduce.JobSubmitter: Hadoop command-line option parsing not performed. Implement the Tool interface and execute your application with ToolRunner to remedy this.
+15/04/30 13:46:35 INFO input.FileInputFormat: Total input paths to process : 1
+15/04/30 13:46:35 INFO lzo.GPLNativeCodeLoader: Loaded native gpl library from the embedded binaries
+15/04/30 13:46:35 INFO lzo.LzoCodec: Successfully loaded & initialized native-lzo library [hadoop-lzo rev 77cfa96225d62546008ca339b7c2076a3da91578]
+15/04/30 13:46:35 INFO mapreduce.JobSubmitter: number of splits:1
+15/04/30 13:46:35 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_1430398148335_0009
+15/04/30 13:46:35 INFO impl.YarnClientImpl: Submitted application application_1430398148335_0009
+15/04/30 13:46:35 INFO mapreduce.Job: The url to track the job: http://10.164.153.110:9046/proxy/application_1430398148335_0009/
+15/04/30 13:46:35 INFO mapreduce.Job: Running job: job_1430398148335_0009
+15/04/30 13:46:43 INFO mapreduce.Job: Job job_1430398148335_0009 running in uber mode : false
+15/04/30 13:46:43 INFO mapreduce.Job:  map 0% reduce 0%
+15/04/30 13:46:51 INFO mapreduce.Job:  map 100% reduce 0%
+15/04/30 13:47:00 INFO mapreduce.Job:  map 100% reduce 4%
+15/04/30 13:47:01 INFO mapreduce.Job:  map 100% reduce 9%
+15/04/30 13:47:02 INFO mapreduce.Job:  map 100% reduce 30%
+15/04/30 13:47:03 INFO mapreduce.Job:  map 100% reduce 52%
+15/04/30 13:47:03 INFO metrics.MetricsSaver: MetricsSaver j-HBJZ7T7W7NAL:i-1592d4e8:RunJar:21473 metricFile /mnt/var/em/raw/i-1592d4e8_20150430_null_00000_raw.bin
+15/04/30 13:47:03 INFO metrics.MetricsSaver: Saved 8:22 records to /mnt/var/em/raw/i-1592d4e8_20150430_RunJar_21473_raw.bin
+15/04/30 13:47:04 INFO mapreduce.Job:  map 100% reduce 74%
+15/04/30 13:47:08 INFO mapreduce.Job:  map 100% reduce 96%
+15/04/30 13:47:09 INFO mapreduce.Job:  map 100% reduce 100%
+15/04/30 13:47:09 INFO mapreduce.Job: Job job_1430398148335_0009 completed successfully
+15/04/30 13:47:09 INFO mapreduce.Job: Counters: 54
+	File System Counters
+		FILE: Number of bytes read=3226
+		FILE: Number of bytes written=2433009
+		FILE: Number of read operations=0
+		FILE: Number of large read operations=0
+		FILE: Number of write operations=0
+		HDFS: Number of bytes read=107
+		HDFS: Number of bytes written=0
+		HDFS: Number of read operations=1
+		HDFS: Number of large read operations=0
+		HDFS: Number of write operations=0
+		S3: Number of bytes read=3505
+		S3: Number of bytes written=1609
+		S3: Number of read operations=0
+		S3: Number of large read operations=0
+		S3: Number of write operations=0
+	Job Counters 
+		Launched map tasks=1
+		Launched reduce tasks=23
+		Data-local map tasks=1
+		Total time spent by all maps in occupied slots (ms)=32700
+		Total time spent by all reduces in occupied slots (ms)=2116788
+		Total time spent by all map tasks (ms)=5450
+		Total time spent by all reduce tasks (ms)=176399
+		Total vcore-seconds taken by all map tasks=5450
+		Total vcore-seconds taken by all reduce tasks=176399
+		Total megabyte-seconds taken by all map tasks=7848000
+		Total megabyte-seconds taken by all reduce tasks=508029120
+	Map-Reduce Framework
+		Map input records=100
+		Map output records=836
+		Map output bytes=15809
+		Map output materialized bytes=3134
+		Input split bytes=107
+		Combine input records=0
+		Combine output records=0
+		Reduce input groups=105
+		Reduce shuffle bytes=3134
+		Reduce input records=836
+		Reduce output records=105
+		Spilled Records=1672
+		Shuffled Maps =23
+		Failed Shuffles=0
+		Merged Map outputs=23
+		GC time elapsed (ms)=2877
+		CPU time spent (ms)=16920
+		Physical memory (bytes) snapshot=6693408768
+		Virtual memory (bytes) snapshot=76397957120
+		Total committed heap usage (bytes)=8505524224
+	Shuffle Errors
+		BAD_ID=0
+		CONNECTION=0
+		IO_ERROR=0
+		WRONG_LENGTH=0
+		WRONG_MAP=0
+		WRONG_REDUCE=0
+	File Input Format Counters 
+		Bytes Read=3505
+	File Output Format Counters 
+		Bytes Written=1609
+Operations DONE, exitCode: 0
