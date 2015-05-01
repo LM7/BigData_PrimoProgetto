@@ -16,9 +16,27 @@ for each line l in text:              		\\per ogni riga del file di input
 *\
 
 Reduce(key, counts[]):            
-occ = 0;		      \\inizializza il contatore a 0
-for each c in counts:	      \\per ogni istanza in counts
-	occ += c;             \\aggiorna il contatore
-for each product p in keySet: \\per ogni prodotto presente nelle chiavi
-	****		      \\raggruppa le coppie (date,occorrenze)	
+occ = 0;		      		\\inizializza il contatore a 0
+for each c in counts:	      		\\per ogni istanza in counts
+	occ += c;             		\\aggiorna il contatore
+
+prodotto = key->prodotto;      		\\scompone la chiave in due sottovariabili: prodotto e data
+date = key->date;
+array={date,occ};			\\salva in un array la data e il num di occorrenze associate
+if(map.contain(prodotto) 		\\se la mappa (prodotto,lista{data,occorrenze}) contiene il prodotto
+	list = map.get(prodotto); 	\\salva il valore della chiave in una lista di appoggio
+	list.add(array); 		\\aggiungi alla lista dei valori data e occorrenze aggiornate
+else					\\altrimenti (se la mappa non contiene il prodotto)
+	list.add(array);		\\aggiungi alla lista di appoggio i valori{data,occorrenze}
+	map.put(prodotto,list);		\\aggiorna la mappa aggiungendo i valori correnti
+
+
+cleanup():
+for each product p in map.keySet:				\\per ogni prodotto nella mappa
+	values=p;						\\salva in una stringa temporanea il prodotto
+	for each value v in map.get(p):				\\per lista di valori associati al prodotto nella mappa
+		values+=map.get(p).get(0) + map.get(p).get(1);	\\ricomponi in una stringa la chiave(prodotto) più i valori{data,occorrenze}
+	values+=map.get(p).get(0);				\\modifica la stringa di appoggio con prodotto e data (senza occorrenze)
+	key=values;						\\aggiorna la chiave con la stringa di appoggio
+	Emit(key,map.get(p).get(1))				\\crea l'associazione finale chiave() e occorrenze
 
