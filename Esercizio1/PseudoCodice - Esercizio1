@@ -12,35 +12,17 @@ for each line l in text:              \\per ogni riga del file di input
 \*
 *  Reducer che somma per ciascun prodotto le occorrenze rilevate
 *\
+
 Reduce(key, counts[]):            
 occ = 0;		      \\inizializza il contatore a 0
 for each c in counts:	      \\per ogni istanza in counts
 	occ += c;             \\aggiorna il contatore
-Emit(key, occ);               \\associa a ciascun prodotto il numero di occorrenze d'acquisto
+queue.add(key,occ);	      \\aggiunge ad un elemento prodotto,occorrenze
 
 
-\*
-*  Mapper che inverte i parametri delle coppie (prodotto,occorrenze) e inverte il segno delle occorrenze
-*  (Tali operazioni sono state implementate perchè un ordinamento sulle chiavi in ordine crescente viene già eseguito)
-*\
-
-MapSort(key, text):		 
-for each pair p in text:	   \\per ogni coppia (prodotto,occorrenze) del file di input
-	p->occ= (p->occ)*-1;	   \\inverto il segno delle occorrenze
-	Emit(p->occ,p->product);   \\ricreo l'associazione invertendo i valori della coppia
-
-
-\*
-* Reducer che inverte nuovamente i parametri delle coppie e il valore delle occorrenze per generare l'ordinamento finale
-*\
-
-ReduceSort(key,product)	
-key=key*-1;		\\riporto il segno delle occorrenze al valore positivo
-Emit(product,key);	\\creo l'associazione finale ordinata
-
-	
-
-
-
-
+cleanup():					
+while (!queue.isEmpty()):		\\finchè la coda non è vuota
+	list.add(queue.remove());	\\aggiunge ad una lista la coda
+for each element e in list:		\\per ogni elemento (prodotto,occorrenze) della lista
+	Emit(e->prod,e->occ);		\\crea l'associazione finale 
 

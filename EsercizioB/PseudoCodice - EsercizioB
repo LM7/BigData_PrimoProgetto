@@ -7,26 +7,18 @@ Map(key, text):
 for each line l in text:              					        \\per ogni riga del file di input
      for each product p in line:    					        \\per ogni prodotto di ogni riga
 	lineProduct.add(p);					    	        \\aggiorna una lista
-									        \\creo coppie	
 	for each i=0 to lineProduct.size:				        \\scorre la lista con un parametro i
-             for each j=i+1 to lineProduct.size:			        \\scorre la lsita con un parametro j	
-	          pair=(lineProduct->get(i),lineProduct->get(j));	        \\crea le coppie di prodotti		
-		  Emit(pair, 1);			     	                \\associa il valore 1
-									        \\creo triple	
-	for each i=0 to lineProduct.size:				        \\scorre la lista con un parametro i
-	     for each j=i+1 to lineProduct.size:			        \\scorre la lsita con un parametro j	
-	          for each k=i+1 to lineProduct.size:			        \\scorre la lsita con un parametro k	
-		       triple=(lineProduct->get(i),lineProduct->get(j),
-			       lineProduct->get(k));    		        \\crea le coppie di prodotti		
-		       Emit(triple, 1);			     	                \\associa il valore 1
-									        \\creo quadruple
-	for each i=0 to lineProduct.size:				        \\scorre la lista con un parametro i
-	     for each j=i+1 to lineProduct.size:			        \\scorre la lsita con un parametro j	
-	          for each k=i+1 to lineProduct.size:			        \\scorre la lsita con un parametro k	
-		       for each w=i+1 to lineProduct.size:		        \\scorre la lsita con un parametro w	
-		            quadr=(lineProduct->get(i),lineProduct->get(j),
-			            lineProduct->get(k),lineProduct->get(w));   \\crea le coppie di prodotti		
-			    Emit(quadr, 1);			     	        \\associa il valore 1
+	     for each j=i+1 to lineProduct.size:				\\scorre la lista con un parametro j
+		  pair=(lineProduct->get(i),lineProduct->get(j));	        \\crea le coppie di prodotti		
+		  Emit(pair, 1);			        		\\associa alle coppie il valore 1	
+	          for each k=j+1 to lineProduct.size:				\\scorre la lista con un parametro k	
+		       triple=(lineProduct->get(i),lineProduct->get(j),		\\crea le triple di prodotti
+			       lineProduct->get(k));    		        	
+		       Emit(triple, 1);					        \\associa alle triple il valore 1
+		       for each w=k+1 to lineProduct.size:		        \\scorre la lista con un parametro w	
+		            quadr=(lineProduct->get(i),lineProduct->get(j),	\\crea le quadruple di prodotti
+			            lineProduct->get(k),lineProduct->get(w));   		
+			    Emit(quadr, 1);					\\associa alle quadruple il valore 1	     	        
 
 
 \*

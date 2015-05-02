@@ -12,7 +12,7 @@ for each line l in text:              					    \\per ogni riga del file di input
 		pair=(lineProduct->get(i),null);	    		    \\crea la coppia (prodotto,NULL)		
 		Emit(pair, 1);			     	            	    \\associa il valore 1
 	for each j=0 to lineProduct.size:				    \\scorre la lista con un parametro j
-		if(j!=i)						    \\se non sono nel caso (prodotto,prodotto)
+		if(j!=i)						    \\se NON sono nel caso (prodotto,prodotto)
 		    pair=(lineProduct->get(i),lineProduct->get(j));	    \\crea le coppie di prodotti		
 		    Emit(pair, 1);			     	            \\associa il valore 1
 
@@ -27,15 +27,15 @@ Reduce(key, counts[]):
 occ = 0;		        				\\inizializza il contatore a 0
 for each c in counts:	      					\\per ogni istanza in counts
 	occ += c;    		  	         		\\aggiorna il contatore
-if(!key->productTwo=NULL)					\\se la coppia è composta da due prodotti (coppia:prodotto1,prodotto2)
-	queue.add(key->productOne,key->productTwo,occ);		\\aggiungi ad una coda la coppia di prodotti con le occorrenze
-else								\\altrimenti (coppia: prodotto,NULL)
-	map.put(key->productOne,occ)				\\aggiungi ad una mappa il prodotto è il numero di occorrenze
+if(!key->productTwo=NULL)					\\se la coppia è composta da due prodotti (prodotto1,prodotto2)
+	queue.add(key->productOne,key->productTwo,occ);		\\aggiunge ad una coda la coppia di prodotti con le occorrenze
+else								\\altrimenti (prodotto,NULL)
+	map.put(key->productOne,occ)				\\aggiunge ad una mappa il prodotto e il numero di occorrenze
 
 
 cleanup():					
 while (!queue.isEmpty()):				\\finchè la coda non è vuota
-	list.add(queue.remove());			\\aggiungi ad una lista la coda
+	list.add(queue.remove());			\\aggiunge ad una lista la coda
 for each pair_num p in list:				\\per ogni elemento (coppia di prodotti, occorrenze) della lista
 	occor = map.get(p->productOne);			\\salva in una variabile il numero di volte che compare un singolo prodotto
 	Emit((p->productOne,p->productTwo);		\\crea l'associazione finale con la coppia di prodotti e la percentuale di volte 

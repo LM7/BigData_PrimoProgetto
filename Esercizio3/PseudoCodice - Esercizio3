@@ -8,7 +8,7 @@ for each line l in text:              					    \\per ogni riga del file di input
 	for each product p in line:    					    \\per ogni prodotto di ogni riga
 		lineProduct.add(p);					    \\aggiorna una lista
 	for each i=0 to lineProduct.size:				    \\scorre la lista con un parametro i
-		for each j=i+1 to lineProduct.size:			    \\scorre la lsita con un parametro j	
+		for each j=i+1 to lineProduct.size:			    \\scorre la lista con un parametro j	
 			pair=(lineProduct->get(i),lineProduct->get(j));	    \\crea le coppie di prodotti		
 			Emit(pair, 1);			     	            \\associa il valore 1
 
@@ -23,13 +23,13 @@ occ = 0;		        	\\inizializza il contatore a 0
 for each c in counts:	      		\\per ogni istanza in counts
 	occ += c;             		\\aggiorna il contatore
 pair=(key,occ);                         \\crea una coppia (chiave, occorrenze)
-queue.add(pair);	                \\aggiungi ad una coda questa coppia
+queue.add(pair);	                \\aggiunge ad una coda questa coppia
 if(queue.size>TopK)                  	\\se la dimensione della coda supera il valore TopK(=10)
-       queue.remove(pairMin);     	\\rimuovi dalla coda la coppia con occorrenza minore
+       queue.remove(pairMin);     	\\rimuove dalla coda la coppia con occorrenza minore
 
 
 cleanup():					
 while (!queue.isEmpty()):				\\finchè la coda non è vuota
-	list.add(queue.remove());			\\aggiungi ad una lista la coda
+	list.add(queue.remove());			\\aggiunge ad una lista la coda
 for each pair_num p in list:				\\per ogni elemento (coppia di prodotti, occorrenze) della lista
 	Emit((p->productOne,p->productTwo),p->occ);	\\crea l'associazione finale
